@@ -1,3 +1,5 @@
+# This example requires the 'members' and 'message_content' privileged intents to function.
+
 import discord
 from discord.ext import commands
 import random
@@ -75,5 +77,12 @@ async def _bot(ctx):
     """Is the bot cool?"""
     await ctx.send('Yes, the bot is cool.')
 
+@bot.command()
+async def mem(ctx):
+    with open('C:\\Users\\user\\Pictures\\VScode\\discord\\mem1.png', 'rb') as f:
+        # Dönüştürülen Discord kütüphane dosyasını bu değişkende saklayalım!
+        picture = discord.File(f)
+   # Daha sonra bu dosyayı bir parametre olarak gönderebiliriz!
+    await ctx.send(file=picture)
 
-bot.run("token")
+bot.run('token')
